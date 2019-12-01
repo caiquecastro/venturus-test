@@ -73,8 +73,8 @@ export default function UsersTable({ users, onFilter, onDelete }) {
                       ) : user.address.city
                   }
                 </td>
-                <td>-----</td>
-                <td>-----</td>
+                <td>{user.rideInGroup}</td>
+                <td>{user.rideDays}</td>
                 <td>{user.postsCount || '0'}</td>
                 <td>{user.albumsCount || '0'}</td>
                 <td>{user.photosCount || '0'}</td>

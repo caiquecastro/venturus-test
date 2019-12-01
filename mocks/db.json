@@ -1,0 +1,104 @@
+{
+    "rides": [
+        {
+            "id": 1,
+            "userId": 1,
+            "frequency": "always",
+            "days": [
+                "Mon",
+                "Tue",
+                "Sat"
+            ]
+        },
+        {
+            "id": 2,
+            "userId": 2,
+            "frequency": "sometimes",
+            "days": [
+                "Sat",
+                "Sun"
+            ]
+        },
+        {
+            "id": 3,
+            "userId": 3,
+            "frequency": "always",
+            "days": [
+                "Mon",
+                "Wed",
+                "Fri"
+            ]
+        },
+        {
+            "id": 4,
+            "userId": 4,
+            "frequency": "never",
+            "days": [
+                "Fri",
+                "Sat",
+                "Sun"
+            ]
+        },
+        {
+            "id": 5,
+            "userId": 5,
+            "frequency": "sometimes",
+            "days": [
+                "Tue",
+                "Thu",
+                "Sat"
+            ]
+        },
+        {
+            "id": 6,
+            "userId": 6,
+            "frequency": "never",
+            "days": [
+                "Mon",
+                "Thu",
+                "Sat"
+            ]
+        },
+        {
+            "id": 7,
+            "userId": 7,
+            "frequency": "sometimes",
+            "days": [
+                "Mon",
+                "Tue",
+                "Wed"
+            ]
+        },
+        {
+            "id": 8,
+            "userId": 8,
+            "frequency": "always",
+            "days": [
+                "Sun",
+                "Mon",
+                "Friday"
+            ]
+        },
+        {
+            "id": 9,
+            "userId": 9,
+            "frequency": "sometimes",
+            "days": [
+                "Wed",
+                "Thu",
+                "Fri"
+            ]
+        },
+        {
+            "id": 10,
+            "userId": 10,
+            "frequency": "always",
+            "days": [
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu"
+            ]
+        }
+    ]
+}
