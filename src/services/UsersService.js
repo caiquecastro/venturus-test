@@ -3,14 +3,25 @@ function fetchJson(endpoint) {
 }
 
 export default {
-  fetchAll() {
+  fetchAll({ filter } = {}) {
     return Promise.all([
       fetchJson('https://jsonplaceholder.typicode.com/users'),
       fetchJson('https://jsonplaceholder.typicode.com/posts'),
       fetchJson('https://jsonplaceholder.typicode.com/albums'),
       fetchJson('https://jsonplaceholder.typicode.com/photos'),
     ]).then(([users, posts, albums, photos]) => {
-      return users.map((user) => {
+      const filteredUsers = users.filter((u) => {
+        if (filter) {
+          return u.name.includes(filter)
+            || u.username.includes(filter)
+            || u.email.includes(filter)
+            || u.address.city.includes(filter);
+        }
+
+        return true;
+      });
+
+      return filteredUsers.map((user) => {
         const postsCount = posts.filter((r) => r.userId === user.id).length;
         const userAlbums = albums.filter((r) => r.userId === user.id);
         const albumsCount = userAlbums.length;
@@ -26,4 +37,10 @@ export default {
       });
     });
   },
+
+  deleteUser(userId) {
+    return fetch(`https://jsonplaceholder.typicode.com/users/${userId}`, {
+      method: 'DELETE',
+    });
+  }
 };
