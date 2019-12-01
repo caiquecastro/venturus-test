@@ -1,0 +1,15 @@
+.SiteLogo {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.SiteLogo svg {
+    color: #fff;
+    display: inline-block;
+    padding: .5rem;
+    border-radius: 5px;
+    margin-right: .5rem;
+    background-color: var(--primary);
+}

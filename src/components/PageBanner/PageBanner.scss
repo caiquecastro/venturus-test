@@ -1,0 +1,38 @@
+.PageBanner {
+    background-color: var(--secondary);
+    padding: 2rem 0;
+
+    p {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+.PageBannerContainer {
+    display: flex;
+}
+
+.PageDetails {
+    margin-right: 3rem;
+    display: flex;
+    align-items: center;
+}
+
+.PageDetails svg {
+    color: var(--primary);
+}
+
+.PageDetail {
+    margin-left: .75rem;
+}
+
+.PageDetailTitle {
+    font-size: .9rem;
+    color: var(--grey);
+}
+
+.PageDetailValue {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--dark);
+}
