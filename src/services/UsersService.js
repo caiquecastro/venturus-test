@@ -42,7 +42,17 @@ export default {
     return fetch('https://jsonplaceholder.typicode.com/users', {
       method: 'POST',
       body: JSON.stringify(attributes),
-    });
+    }).then((res) => res.json())
+      .then((responseBody) => {
+        const { city, ...rest } = attributes;
+        return {
+          address: {
+            city,
+          },
+          ...rest,
+          ...responseBody,
+        };
+      });
   },
 
   deleteUser(userId) {

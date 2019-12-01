@@ -3,27 +3,13 @@ import './UsersTable.scss';
 import UsersService from '../../services/UsersService';
 import TrashIcon from '../../icons/TrashIcon';
 
-function getCityLink(address) {
+function getCityLink(address = {}) {
   const { geo: { lat, lng } } = address;
 
   return `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`;
 }
 
-export default function UsersTable() {
-  const [users, setUsers] = useState([]);
-  const [error, setError] = useState(null);
-  const [filter, setFilter] = useState('');
-
-  useEffect(() => {
-    UsersService.fetchAll({
-      filter,
-    }).then((data) => {
-      setUsers(data);
-    }).catch((err) => {
-      setError(err.message);
-    });
-  }, [filter]);
-
+export default function UsersTable({ users, onFilter, onDelete }) {
   function deleteUser(user) {
     const confirmAnswer = window.confirm(`Do you want to delete user ${user.name}?`);
 
@@ -31,6 +17,7 @@ export default function UsersTable() {
       UsersService.deleteUser(user.id)
         .then(() => {
           window.alert('User was successfully deleted');
+          onDelete && onDelete(user.id);
         });
     }
   }
@@ -47,8 +34,7 @@ export default function UsersTable() {
               id="searchInput"
               className="FormInput"
               placeholder="Filter Table Content"
-              value={filter}
-              onChange={(e) => setFilter(e.target.value)}
+              onChange={(e) => onFilter(e.target.value)}
             />
           </form>
         </div>
@@ -78,15 +64,20 @@ export default function UsersTable() {
                   <a href={`mailto:${user.email}`}>{user.email}</a>
                 </td>
                 <td>
-                  <a href={getCityLink(user.address)}>
-                    {user.address.city}
-                  </a>
+                  {
+                    user.address.geo ?
+                      (
+                        <a href={getCityLink(user.address)}>
+                          {user.address.city}
+                        </a>
+                      ) : user.address.city
+                  }
                 </td>
                 <td>-----</td>
                 <td>-----</td>
-                <td>{user.postsCount}</td>
-                <td>{user.albumsCount}</td>
-                <td>{user.photosCount}</td>
+                <td>{user.postsCount || '0'}</td>
+                <td>{user.albumsCount || '0'}</td>
+                <td>{user.photosCount || '0'}</td>
                 <td className="TableAction">
                   <button type="button" onClick={() => deleteUser(user)}>
                     <TrashIcon />
