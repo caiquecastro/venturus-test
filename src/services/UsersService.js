@@ -42,5 +42,5 @@ export default {
     return fetch(`https://jsonplaceholder.typicode.com/users/${userId}`, {
       method: 'DELETE',
     });
-  }
+  },
 };

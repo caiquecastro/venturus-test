@@ -19,19 +19,18 @@ export default function UsersTable() {
       filter,
     }).then((data) => {
       setUsers(data);
-    })
-    .catch((err) => {
+    }).catch((err) => {
       setError(err.message);
     });
   }, [filter]);
 
   function deleteUser(user) {
-    const confirmAnswer = confirm(`Do you want to delete user ${user.name}?`);
+    const confirmAnswer = window.confirm(`Do you want to delete user ${user.name}?`);
 
     if (confirmAnswer) {
       UsersService.deleteUser(user.id)
         .then(() => {
-          alert('User was successfully deleted');
+          window.alert('User was successfully deleted');
         });
     }
   }
@@ -42,11 +41,14 @@ export default function UsersTable() {
         <div className="PageHeader">
           <h1 className="PageTitle">Users</h1>
           <form action="/" method="GET" className="SearchForm">
+            <label htmlFor="searchInput" className="sr-only">Buscar</label>
             <input
+              type="text"
+              id="searchInput"
               className="FormInput"
               placeholder="Filter Table Content"
               value={filter}
-              onChange={e => setFilter(e.target.value)}
+              onChange={(e) => setFilter(e.target.value)}
             />
           </form>
         </div>
@@ -62,7 +64,9 @@ export default function UsersTable() {
               <th>Post</th>
               <th>Albums</th>
               <th>Photos</th>
-              <th></th>
+              <th>
+                <span className="sr-only">Actions</span>
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -84,7 +88,9 @@ export default function UsersTable() {
                 <td>{user.albumsCount}</td>
                 <td>{user.photosCount}</td>
                 <td className="TableAction">
-                  <button onClick={() => deleteUser(user)}><TrashIcon /></button>
+                  <button type="button" onClick={() => deleteUser(user)}>
+                    <TrashIcon />
+                  </button>
                 </td>
               </tr>
             ))}
