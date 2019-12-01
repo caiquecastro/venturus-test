@@ -1,0 +1,22 @@
+.UsersTable {
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: left;
+        margin-bottom: 1rem;
+    }
+
+    th {
+        border-bottom: 2px solid #ddd;
+    }
+
+    tbody tr:nth-child(2n) {
+        background-color: #fafafa;
+    }
+
+    td,
+    th {
+        padding: 1rem .75rem;
+        margin: 0;
+    }
+}
