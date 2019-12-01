@@ -1,3 +1,8 @@
 .Header {
     padding: 1.5rem 0;
 }
+
+.HeaderContainer {
+    display: flex;
+    align-items: center;
+}

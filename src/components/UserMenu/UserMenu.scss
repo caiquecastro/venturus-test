@@ -1,0 +1,18 @@
+.UserMenu {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+
+    .gravatar {
+        border: 1px solid var(--dark);
+        padding: .5rem;
+        border-radius: 100%;
+        user-select: none;
+        margin-right: .5rem;
+    }
+
+    &::after {
+        content: "▾";
+        margin-left: .2rem;
+    }
+}

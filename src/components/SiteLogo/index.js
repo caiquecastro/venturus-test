@@ -7,7 +7,7 @@ export default function SiteLogo() {
   return (
     <div className="SiteLogo">
       <FontAwesomeIcon icon={faVolleyballBall} size="2x" />
-      Venturus Sport
+      Venturus Sports
     </div>
   );
 }

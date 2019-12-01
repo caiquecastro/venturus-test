@@ -1,0 +1,28 @@
+.RegistrationBanner {
+    display: flex;
+}
+
+.BannerItem {
+    flex: 1;
+    margin-bottom: 2rem;
+
+    h2,
+    svg {
+        color: var(--primary);
+    }
+}
+
+.BannerItem:not(:last-child) {
+    margin-right: 3.2rem;
+}
+
+.BannerItemText {
+    display: flex;
+    align-items: center;
+
+    p {
+        margin-left: 1.5rem;
+        font-size: 1.1rem;
+        max-width: 22rem;
+    }
+}

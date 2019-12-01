@@ -6,7 +6,7 @@ import UserMenu from '../UserMenu';
 export default function Header() {
   return (
     <div className="Header">
-      <div className="container">
+      <div className="container HeaderContainer">
         <SiteLogo />
         <UserMenu />
       </div>

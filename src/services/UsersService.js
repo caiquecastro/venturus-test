@@ -38,6 +38,13 @@ export default {
     });
   },
 
+  create(attributes) {
+    return fetch('https://jsonplaceholder.typicode.com/users', {
+      method: 'POST',
+      body: JSON.stringify(attributes),
+    });
+  },
+
   deleteUser(userId) {
     return fetch(`https://jsonplaceholder.typicode.com/users/${userId}`, {
       method: 'DELETE',
